@@ -34,8 +34,8 @@ app.use(express.static(__dirname + '/public'));
 var config = {
   "org": 'l58oai',
   "id": 'particle-app',
-  "auth-key": 'a-l58oai-s6fherqn6w',
-  "auth-token": 'yc@IK*7Ib-!+di*QCp'
+  "auth-key": 'a-l58oai-2gg7lzhdv4',
+  "auth-token": 'I3!OaNfiDMBSfwGdmB'
 };
 var appClient = new Client(config);
 
@@ -47,6 +47,7 @@ appClient.on("connect", function () {
 
     appClient.subscribeToDeviceEvents();
 
+    console.log("Hit <Enter> to fire event");
 });
 
 // start server on the specified port and binding host
@@ -75,16 +76,16 @@ io.on('connection', function (socket) {
     socket.on('my other event', function (data) {
       console.log(data);
     });
-
-        console.log("Hit <Enter> to fire event");
-
-        var count = 0;
-
-        stdin.on('data', function(chunk) {
-    		var myData=String("{\"DelaySeconds\" : 10}");
-    		appClient.publishDeviceCommand("Photon","2b002f000547343233323032", "command", "json", myData);
-        	console.log("Fire!");
-	});
 });
+
+stdin.on('data', function(chunk) {
+  var myData=String("{\"DelaySeconds\" : 10}");
+
+  appClient.publishDeviceCommand("Photon","2b002f000547343233323032", "command", "json", myData);
+
+  console.log("Fire!");
+});
+
+
 
 
