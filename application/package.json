@@ -1,0 +1,25 @@
+{
+  "name": "particle-app",
+  "version": "0.0.1",
+  "description": "A sample nodejs app for IBM IoT",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "4.13.x",
+    "socket.io": "1.x.x",
+    "ibmiotf": "0.2.x",
+    "cfenv": "1.0.x"
+  },
+  "repository": {},
+  "engines": {
+    "node": "4.2.x"
+  },
+  "main": "app.js",
+  "devDependencies": {},
+  "keywords": [
+    "IoT"
+  ],
+  "author": "Frank Buettner",
+  "license": "ISC"
+}
